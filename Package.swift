@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:6.1
 import PackageDescription
 
 let package = Package(
@@ -7,12 +7,15 @@ let package = Package(
      .iOS(.v14),
    ],
    products: [
-      .library(name: "Shared", targets: ["Shared"])
+//      .library(name: "Shared", targets: ["Example"])
    ],
    targets: [
-      .binaryTarget(
-         name: "Shared",
-         url: "https://github.com/Guruprakashchandran/SwiftXcFramework/releases/download/ios/Shared.xcframework.zip",
-         checksum:"b547c6d2ac4d1af88ea095b2edffe708a7b0ca4a94e609c99400e72f58597717")
+//      .binaryTarget(
+//         name: "Shared",
+//         url: "https://github.com/Guruprakashchandran/SwiftXcFramework/releases/download/ios/Shared.xcframework.zip",
+//         checksum:"b547c6d2ac4d1af88ea095b2edffe708a7b0ca4a94e609c99400e72f58597717"),
+    
+      .executableTarget(name: "Example", dependencies: ["Shared"]),
+      .binaryTarget(name: "Shared", path: "./Sources/Shared/Shared.xcframework.zip")
    ]
 )
